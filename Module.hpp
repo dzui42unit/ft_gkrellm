@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Module.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dzui <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: arodiono <arodiono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 15:54:06 by dzui              #+#    #+#             */
-/*   Updated: 2017/11/11 15:54:07 by dzui             ###   ########.fr       */
+/*   Updated: 2017/11/11 22:41:52 by arodiono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@
 #include <cassert>
 #include <fstream>
 #include <cstdlib>
+#include "Window.hpp"
 
-#define BUFF_SIZE 	256
+#define BUFF_SIZE 256
 
-class 	Module
+class 	Module : public Window
 {
 protected:
 	std::string		info;

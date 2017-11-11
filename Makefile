@@ -3,26 +3,30 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dzui <marvin@42.fr>                        +#+  +:+       +#+         #
+#    By: arodiono <arodiono@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/01 15:02:50 by dzui              #+#    #+#              #
-#    Updated: 2017/11/11 18:50:23 by dzui             ###   ########.fr        #
+#    Updated: 2017/11/11 22:31:53 by arodiono         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_gkrellm
 
-SRC =  main.cpp Module.cpp HostName.cpp OsModule.cpp TimeModule.cpp CpuModule.cpp DiskModule.cpp MemoryModule.cpp NetwModule.cpp
+SRC =  main.cpp Module.cpp HostName.cpp OsModule.cpp TimeModule.cpp CpuModule.cpp DiskModule.cpp MemoryModule.cpp NetwModule.cpp Window.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
+INC= -I includes/sfml/2.4.2_1/include
+
+LIB= -L includes/sfml/2.4.2_1/lib -lsfml-graphics -lsfml-window -lsfml-system
+
 $(NAME): $(OBJ)
-		clang++ $(FLAGS) $(OBJ) -o $(NAME)
+		clang++ $(FLAGS) -o $(NAME) $(OBJ) $(LIB)
 
 %.o:%.cpp
-		clang++ $(FLAGS) -c -o $@ $<
+		clang++ $(FLAGS) -c $(INC) -o $@ $<
 
 all: $(NAME)
 
