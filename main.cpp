@@ -1,95 +1,57 @@
-#include <iostream>
-#include <unistd.h>
-#include <sys/utsname.h>
-#include <cassert>
-#include <fstream>
-
-#define BUFF_NAME 	256
-#define BUFF_SIZE	1024
-
-
-//	int uname(struct utsname *buf);
-
-//	utsname	info;
-
-//	uname(&info);
-
-//	std::cout << "sysname: " << info.sysname << std::endl;
-//	std::cout << "nodename: " << info.nodename << std::endl;
-//	std::cout << "release: " << info.release << std::endl;
-//	std::cout << "version: " << info.version << std::endl;
-//	std::cout << "machine: " << info.machine << std::endl;
-
-//	unsigned 	buflen = 0;
-//	char 		line[BUFF_NAME];
-//	char 		buf[BUFF_SIZE];
-//
-//
-//	FILE *sw_vers = popen("sw_vers", "r");
-//	while (fgets(line, sizeof(line), sw_vers) != NULL)
-//	{
-//	int l = snprintf(buf + buflen, sizeof(buf) - buflen, "%s", line);
-//	buflen += l;
-//	assert(buflen < sizeof(buf));
-//	}
-//	std::cout << buf << std::endl;
-//	pclose(sw_vers);
-
-
+#include "Module.hpp"
+#include "HostName.hpp"
+#include "OsModule.hpp"
+#include "TimeModule.hpp"
+#include "CpuModule.hpp"
+#include "DiskModule.hpp"
+#include "MemoryModule.hpp"
+#include "NetwModule.hpp"
 
 int		main(void)
 {
-	// HOST_NAME / USER_NAME MODULE / SYS INFO / CUR TIME
+	HostName		hn;
+	OsModule		os;
+	TimeModule		tm;
+	CpuModule		cp;
+	DiskModule		dm;
+	MemoryModule 	mm;
+	NetwModule		nm;
 
-	std::string		os_info;
-	std::string		proc_info;
-	char 			host_name[BUFF_NAME];
-	char 			user_name[BUFF_NAME];
-	char 			buff[BUFF_SIZE];
-	FILE			*pipe;
-	time_t 			time;
-	char 			*dt;
 
-	// PRINT HOST_NAME / USER_NAME
+	std::cout << std::endl;
+	std::cout << "HOST NAME / USER NAME:" << std::endl;
+	hn.parseInfo();
+	std::cout << hn.getInfo() << std::endl << std::endl;
 
-	gethostname(host_name, BUFF_NAME);
-	std::cout << std::endl <<  host_name << std::endl;
-	getlogin_r(user_name, BUFF_NAME);
-	std::cout << user_name << std::endl << std::endl;
+	os.parseInfo();
+	std::cout << "OS INFORMATION:" << std::endl;
+	std::cout << os.getInfo() << std::endl << std::endl;
 
-	// GET OS NAME / VERSION / BUILD
+	tm.parseInfo();
+	std::cout << "TIME INFORMATION:" << std::endl;
+	std::cout << tm.getInfo() << std::endl;
 
-	pipe = popen("sw_vers", "r");
-	while (!feof(pipe))
-	{
-		if (fgets(buff, BUFF_SIZE, pipe) != NULL)
-			os_info += buff;
-	}
-	pclose(pipe);
-	std::cout << os_info << std::endl;
+	cp.parseInfo();
+	std::cout << "CPU INFORMATION:" << std::endl;
+	std::cout << cp.getInfo() << std::endl;
+	std::cout << "User load: " << cp.getLoadUsr() << std::endl;
+	std::cout << "System load: " << cp.getLoadSys() << std::endl;
+	std::cout << "Idle load: " << cp.getLoadIdl() << std::endl << std::endl;
 
-	// GET CURRENT TIME
+	dm.parseInfo();
+	std::cout << "DISK INFO:" << std::endl;
+	std::cout << dm.getInfo() << std::endl << std::endl;
 
-	time = std::time(0); 	// getting current time
-	dt = ctime(&time); 	// converting time to a string
-	std::cout << dt << std::endl;
+	mm.parseInfo();
+	std::cout << "MEMORY INFO:" << std::endl;
+	std::cout << mm.getInfo() << std::endl;
+	std::cout << "Total: " << mm.getTotal() << std::endl;
+	std::cout << "Used: " << mm.getUsed() << std::endl;
+	std::cout << "Unused: " << mm.getUnused() << std::endl;
 
-	// GET CPU NAME / CLOCK SPEED
-
-	pipe = popen("sysctl -n machdep.cpu.brand_string", "r");
-	while (!feof(pipe))
-	{
-		if (fgets(buff, BUFF_SIZE, pipe) != NULL)
-			proc_info += buff;
-	}
-	pclose(pipe);
-	std::cout << proc_info << std::endl;
-
-	// GET NUMBER OF CORES
-
-	int numCPU = sysconf(_SC_NPROCESSORS_ONLN);
-
-	std::cout << "Cores: " << numCPU << std::endl << std::endl;
+	nm.parseInfo();
+	std::cout << "NETWORK MODULE:" << std::endl;
+	std::cout << nm.getInfo() << std::endl << std::endl;
 
 	return (0);
 }

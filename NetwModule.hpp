@@ -1,0 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   NetwModule.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzui <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/11 18:47:23 by dzui              #+#    #+#             */
+/*   Updated: 2017/11/11 18:47:24 by dzui             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef NETWMODULE_HPP
+#define NETWMODULE_HPP
+
+#include "Module.hpp"
+
+class 		NetwModule : public Module
+{
+public:
+	void	parseInfo();
+};
+
+#endif
