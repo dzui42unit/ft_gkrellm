@@ -41,7 +41,12 @@ private:
 public:
 				NcursesOut();
 				~NcursesOut();
-	void		HostNameWin();
+	void		drawStats();
+	void		printColumn(int y_start, int x_start, float load) const;
+	void		printHostOs() const;
+	void		printTime() const;
+	void		printCPU() const;
+	void		printMemNetw() const;
 };
 
 #endif 

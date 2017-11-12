@@ -16,6 +16,6 @@ int		main(void)
 {
 	NcursesOut 	nc_out;
 
-	nc_out.HostNameWin();
+	nc_out.drawStats();
 	return (0);
 }
