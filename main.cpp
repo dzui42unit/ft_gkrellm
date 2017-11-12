@@ -6,7 +6,7 @@
 /*   By: arodiono <arodiono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 22:05:24 by arodiono          #+#    #+#             */
-/*   Updated: 2017/11/11 22:50:40 by arodiono         ###   ########.fr       */
+/*   Updated: 2017/11/12 02:18:16 by arodiono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,20 @@
 #include "DiskModule.hpp"
 #include "MemoryModule.hpp"
 #include "NetwModule.hpp"
+#include <ctime>
 
 int		main(void)
 {
-	sf::RenderWindow win(sf::VideoMode(1000, 1000), "ft_gkrellm", sf::Style::Titlebar | sf::Style::Close);
-
-	Window 			WIN(&win);
-	HostName		hn;
-	OsModule		os;
-	TimeModule		tm;
-	CpuModule		cp;
-	DiskModule		dm;
-	MemoryModule 	mm;
-	NetwModule		nm;
-
-
-
-	// sf::RenderWindow(win);
+	int w = 2500, h = 2000;
+	sf::RenderWindow win(sf::VideoMode(w, h), "ft_gkrellm", sf::Style::Titlebar | sf::Style::Close);
+	Window 				WIN(&win);
+	HostName			hn;
+	OsModule			os;
+	TimeModule			tm;
+	CpuModule			cp;
+	DiskModule			dm;
+	MemoryModule 		mm;
+	NetwModule			nm;
 
 	// std::cout << std::endl;
 	// std::cout << "HOST NAME / USER NAME:" << std::endl;
@@ -73,10 +70,42 @@ int		main(void)
 	// std::cout << nm.getInfo() << std::endl << std::endl;
 
 
-	sf::RectangleShape rectangle;
-	rectangle.setSize(sf::Vector2f(100, 50));
-	rectangle.setOutlineThickness(5);
-	rectangle.setPosition(10, 20);
+	sf::RectangleShape header;
+	header.setSize(sf::Vector2f(w, 100));
+	header.setOutlineThickness(10);
+	header.setPosition(0, 0);
+
+	// sf::RectangleShape info;
+	// info.setSize(sf::Vector2f(2000, 400));
+	// info.setOutlineThickness(10);
+	// info.setPosition(250, 250);
+
+	// sf::RectangleShape cpu;
+	// cpu.setSize(sf::Vector2f(2000, 400));
+	// cpu.setOutlineThickness(10);
+	// cpu.setPosition(250, 800);
+	
+	sf::Font font;
+	font.loadFromFile("includes/fonts/helvetica.ttf");
+	
+	// hn.parseInfo();
+	// sf::Text hnInfo(hn.getInfo(), font);
+	// hnInfo.setFillColor(sf::Color::Black);
+	// hnInfo.setCharacterSize(30);
+	// hnInfo.setPosition(150, 150);
+
+	// // os.parseInfo();
+	// sf::Text osInfo(os.getInfo(), font);
+	// osInfo.setFillColor(sf::Color::Black);
+	// osInfo.setCharacterSize(30);
+	// osInfo.setPosition(150, 350);
+
+	// // tm.parseInfo();
+	// sf::Text tmInfo(tm.getInfo(), font);
+	// tmInfo.setFillColor(sf::Color::Black);
+	// tmInfo.setCharacterSize(30);
+	// tmInfo.setPosition(150, 550);
+	sf::Text osInfo(os.getInfo(), font);
 
 	while (WIN.window->isOpen())
 	{
@@ -86,14 +115,36 @@ int		main(void)
 			if (event.type == sf::Event::Closed)
 				WIN.window->close();
 		}
+		WIN.window->clear();
 		WIN.window->clear(GRAY);
+		WIN.window->draw(header);
 
-		hn.parseInfo();
-		sf::Text text;
-		text.setString(hn.getInfo());
+		// hn.parseInfo();
+		// sf::Text hnInfo(hn.getInfo(), font);
+		// hnInfo.setFillColor(sf::Color::Black);
+		// hnInfo.setCharacterSize(30);
+		// hnInfo.setPosition(150, 150);
 
-		WIN.window->draw(text);
+		os.parseInfo();
+		osInfo.setString(os.getInfo());
+		osInfo.setFillColor(sf::Color::Black);
+		osInfo.setCharacterSize(30);
+		osInfo.setPosition(150, 350);
+
+		tm.parseInfo();
+		sf::Text tmInfo(tm.getInfo(), font);
+		tmInfo.setFillColor(sf::Color::Black);
+		tmInfo.setCharacterSize(30);
+		tmInfo.setPosition(150, 550);
+
+		WIN.window->draw(osInfo);
+		WIN.window->draw(tmInfo);
+		// WIN.window->draw(hnInfo);
+
+		// WIN.window->draw(cp.render());
+
 		WIN.window->display();
+		usleep(1000000);
 	}
 
 	return (0);

@@ -6,7 +6,7 @@
 #    By: arodiono <arodiono@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/01 15:02:50 by dzui              #+#    #+#              #
-#    Updated: 2017/11/11 22:31:53 by arodiono         ###   ########.fr        #
+#    Updated: 2017/11/12 01:08:09 by arodiono         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ INC= -I includes/sfml/2.4.2_1/include
 LIB= -L includes/sfml/2.4.2_1/lib -lsfml-graphics -lsfml-window -lsfml-system
 
 $(NAME): $(OBJ)
-		clang++ $(FLAGS) -o $(NAME) $(OBJ) $(LIB)
+		clang++ -g $(FLAGS) -o $(NAME) $(OBJ) $(LIB)
 
 %.o:%.cpp
 		clang++ $(FLAGS) -c $(INC) -o $@ $<
@@ -34,6 +34,6 @@ clean:
 		rm -rf $(OBJ)
 
 fclean: clean
-		rm -rf $(NAME) $(OBJ)
+		rm -rf $(NAME)
 
 re:	fclean $(NAME)
