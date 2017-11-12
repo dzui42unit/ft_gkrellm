@@ -61,13 +61,13 @@ void	MemoryModule::parseInfo()
 	std::string token;
 	std::string temp;
 
+	info = "";
 	pipe = popen("top -l 1 | grep \"PhysMem:\"", "r");
 	while (!feof(pipe))
 	{
 		if (fgets(buff, BUFF_SIZE, pipe) != NULL)
 			info += buff;
 	}
-	std::cout << info << std::endl;
 	i = 0;
 	pos = 0;
 	temp = info;

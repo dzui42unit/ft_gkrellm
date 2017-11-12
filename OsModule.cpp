@@ -14,6 +14,7 @@
 
 void	OsModule::parseInfo()
 {
+	info = "";
 	pipe = popen("sw_vers", "r");
 	while (!feof(pipe))
 	{

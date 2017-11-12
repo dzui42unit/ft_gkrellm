@@ -48,6 +48,7 @@ void	CpuModule::parseInfo()
 	int 		i;
 
 	pos = 0;
+	info = "";
 	pipe = popen("system_profiler -detailLevel full SPHardwareDataType", "r");
 	while (!feof(pipe))
 	{

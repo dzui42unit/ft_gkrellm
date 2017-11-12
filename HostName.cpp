@@ -35,6 +35,7 @@ HostName::HostName(const HostName &hn)
 
 void	HostName::parseInfo()
 {
+	info = "";
 	gethostname(buff, BUFF_SIZE);
 	info = buff;
 	info += " / ";

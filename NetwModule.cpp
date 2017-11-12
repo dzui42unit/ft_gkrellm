@@ -14,6 +14,7 @@
 
 void	NetwModule::parseInfo()
 {
+	info = "";
 	pipe = popen("top -l 1 | grep \"Networks:\"", "r");
 	while (!feof(pipe))
 	{

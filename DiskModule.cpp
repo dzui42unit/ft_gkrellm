@@ -35,6 +35,7 @@ DiskModule	&DiskModule::operator=(const DiskModule &dm)
 
 void	DiskModule::parseInfo()
 {
+	info = "";
 	pipe = popen("top -l 1 | grep \"Disks:\"", "r");
 	while (!feof(pipe))
 	{

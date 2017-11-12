@@ -16,6 +16,7 @@ void		TimeModule::parseInfo()
 {
 	time_t	time;
 
+	info = "";
 	time = std::time(0);
 	info = ctime(&time);
 }
