@@ -30,6 +30,9 @@ class 			NcursesOut
 {
 private:
 	WINDOW		*win;
+	HostName 	*hn;
+	OsModule 	*os;
+	TimeModule 	*tm;
 	int			max_x;
 	int			max_y;
 public:

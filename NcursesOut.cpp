@@ -14,7 +14,12 @@
 
 NcursesOut::NcursesOut()
 {
-
+	hn = new HostName();
+	os = new OsModule();
+	tm = new TimeModule();
+	hn->parseInfo();
+	os->parseInfo();
+	tm->parseInfo();
 }
 
 NcursesOut::~NcursesOut()
@@ -41,18 +46,42 @@ void	NcursesOut::HostNameWin()
 	init_pair(7, COLOR_MAGENTA, COLOR_BLACK);
 
 	getmaxyx(stdscr, max_y, max_x);
-	attron(COLOR_PAIR(4));
-	for (int i = 0; i < max_x; i++)
+	for (int i = 0; i < max_x / 2; i++)
 	{
 		mvprintw(0, i, "-");
-		mvprintw(max_y - 1, i, "-");
-		 refresh();
+		mvprintw(max_y / 2, i, "-");
 	}
-	for (int i = 0; i < max_y; i++)
+	for (int i = 0; i < max_y / 2; i++)
 	{
 		mvprintw(i, 0, "|");
-		mvprintw(i, max_x - 1, "|");
-		 refresh();
+		mvprintw(i, max_x / 2, "|");
+	}
+	mvprintw(2, 4, "Host name / User name: %s", (hn->getInfo().c_str()));
+	for (int i = 1; i < max_x / 2; i++)
+		mvprintw(3, i, "-");
+
+	size_t 		pos;
+	std::string temp = os->getInfo();
+	std::string token;
+	int 		j;
+
+	j = 0;
+	pos = 0;
+	mvprintw(5, 4, "Information about Operating System:");
+	while ((pos = temp.find('\n')) != std::string::npos)
+	{
+	    token = temp.substr(0, pos);
+	    mvprintw(7 + j, 4, "%s", token.c_str());
+	    temp.erase(0, pos + 1);
+	    j++;
+	}
+	for (int i = 1; i < max_x / 2; i++)
+		mvprintw(9, i, "-");
+	mvprintw(10, 4, "Date / Time: %s", tm->getInfo().c_str());
+	mvprintw(10, max_x / 2, "|");
+	for (int i = 1; i < max_x / 2; i++)
+	{
+		mvprintw(11, i, "-");
 	}
 	refresh();
 	while (1)
