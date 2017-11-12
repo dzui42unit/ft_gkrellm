@@ -13,9 +13,9 @@
 #ifndef NETWMODULE_HPP
 #define NETWMODULE_HPP
 
-#include "Module.hpp"
+#include "IMonitorModule.hpp"
 
-class 		NetwModule : public Module
+class 		NetwModule : public IMonitorModule
 {
 public:
 	void		parseInfo();

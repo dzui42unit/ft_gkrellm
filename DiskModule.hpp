@@ -13,9 +13,9 @@
 #ifndef DISKMODULE_HPP
 #define DISKMODULE_HPP
 
-#include "Module.hpp"
+#include "IMonitorModule.hpp"
 
-class 		DiskModule : public Module
+class 		DiskModule : public IMonitorModule
 {
 public:
 	void		parseInfo();

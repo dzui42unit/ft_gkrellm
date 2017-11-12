@@ -13,9 +13,9 @@
 #ifndef MEMORYMODULE_HPP
 #define MEMORYMODULE_HPP
 
-#include "Module.hpp"
+#include "IMonitorModule.hpp"
 
-class 				MemoryModule : public Module
+class 				MemoryModule : public IMonitorModule
 {
 private:
 	int		mem[3];

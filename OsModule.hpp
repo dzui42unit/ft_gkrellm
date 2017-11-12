@@ -13,9 +13,9 @@
 #ifndef OSMODULE_HPP
 #define OSMODULE_HPP
 
-#include "Module.hpp"
+#include "IMonitorModule.hpp"
 
-class 		OsModule : public Module
+class 		OsModule : public IMonitorModule
 {
 public:
 	void		parseInfo();

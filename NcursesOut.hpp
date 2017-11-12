@@ -15,7 +15,7 @@
 
 #define HNW_H 40
 
-#include "Module.hpp"
+#include "IMonitorModule.hpp"
 #include "HostName.hpp"
 #include "OsModule.hpp"
 #include "TimeModule.hpp"

@@ -13,9 +13,9 @@
 #ifndef CPUMODULE_HPP
 #define CPUMODULE_HPP
 
-#include "Module.hpp"
+#include "IMonitorModule.hpp"
 
-class 			CpuModule : public Module 
+class 			CpuModule : public IMonitorModule 
 {
 private:
 	float		load[3];

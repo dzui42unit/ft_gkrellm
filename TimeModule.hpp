@@ -13,9 +13,9 @@
 #ifndef TIMEMODULE_HPP
 #define TIMEMODULE_HPP
 
-#include "Module.hpp"
+#include "IMonitorModule.hpp"
 
-class 		TimeModule : public Module
+class 		TimeModule : public IMonitorModule
 {
 public:
 	void		parseInfo();

@@ -13,9 +13,9 @@
 #ifndef HOSTNAME_HPP
 #define HOSTNAME_HPP
 
-#include "Module.hpp"
+#include "IMonitorModule.hpp"
 
-class 			HostName : public Module
+class 			HostName : public IMonitorModule
 {
 public:
 	void		parseInfo();

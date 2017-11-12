@@ -1,28 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Module.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dzui <marvin@42.fr>                        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 15:56:47 by dzui              #+#    #+#             */
-/*   Updated: 2017/11/11 15:56:49 by dzui             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "IMonitorModule.hpp"
 
-#include "Module.hpp"
-
-Module::Module() : info(""), pipe(NULL)
+IMonitorModule::IMonitorModule() : info(""), pipe(NULL)
 {
 
 }
 
-Module::~Module()
+IMonitorModule::~IMonitorModule()
 {
 
 }
 
-Module		&Module::operator=(const Module &m)
+IMonitorModule		&IMonitorModule::operator=(const IMonitorModule &m)
 {
 	info = m.info;
 	pipe = m.pipe;
@@ -30,14 +18,14 @@ Module		&Module::operator=(const Module &m)
 	return (*this);
 }
 
-Module::Module(const Module &m)
+IMonitorModule::IMonitorModule(const IMonitorModule &m)
 {
 	info = m.info;
 	pipe = m.pipe;
 	strcpy(buff, m.buff);
 }
 
-std::string		Module::getInfo() const
+std::string		IMonitorModule::getInfo() const
 {
 	return (info);
 }
