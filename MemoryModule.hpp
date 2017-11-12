@@ -25,7 +25,7 @@ public:
 	int				getUsed() const;
 	int				getUnused() const;
 					MemoryModule();
-					~MemoryModule();
+	virtual			~MemoryModule();
 					MemoryModule(const MemoryModule &mm);
 	MemoryModule 	&operator=(const MemoryModule &mm);
 };

@@ -12,10 +12,27 @@
 
 #include "NcursesOut.hpp"
 
-int		main(void)
+int		main(int argc, char **argv)
 {
 	NcursesOut 	nc_out;
+	std::string	inp;
+	if (argc == 2)
+	{
+		inp = argv[1];
+		if (inp == "-n")
+			nc_out.drawStats();
+		else if (inp == "-v")
+		{
 
-	nc_out.drawStats();
+		}
+		else
+		{
+			std::cout << "Usage: -n for ncurses output, -v for visual output.\n";
+			return (0);
+		}
+
+	}
+	else
+		std::cout << "Usage: -n for ncurses output, -v for visual output.\n";
 	return (0);
 }

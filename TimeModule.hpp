@@ -20,7 +20,7 @@ class 		TimeModule : public IMonitorModule
 public:
 	void		parseInfo();
 				TimeModule();
-				~TimeModule();
+	virtual		~TimeModule();
 				TimeModule(const TimeModule &tm);
 	TimeModule 	&operator=(const TimeModule &tm);
 };

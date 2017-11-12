@@ -20,7 +20,7 @@ class 		OsModule : public IMonitorModule
 public:
 	void		parseInfo();
 				OsModule();
-				~OsModule();
+	virtual		~OsModule();
 				OsModule(const OsModule &os);
 	OsModule 	&operator=(const OsModule &os);
 

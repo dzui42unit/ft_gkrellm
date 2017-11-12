@@ -20,7 +20,7 @@ class 		DiskModule : public IMonitorModule
 public:
 	void		parseInfo();
 				DiskModule();
-				~DiskModule();
+	virtual		~DiskModule();
 				DiskModule(const DiskModule &dm);
 	DiskModule 	&operator=(const DiskModule &dm);
 };

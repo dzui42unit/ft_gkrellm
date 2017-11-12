@@ -20,7 +20,7 @@ class 			HostName : public IMonitorModule
 public:
 	void		parseInfo();
 				HostName();
-				~HostName();
+	virtual		~HostName();
 				HostName(const HostName &hn);
 	HostName 	&operator=(const HostName &hn);
 };

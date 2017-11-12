@@ -20,7 +20,7 @@ class 		NetwModule : public IMonitorModule
 public:
 	void		parseInfo();
 				NetwModule();
-				~NetwModule();
+	virtual		~NetwModule();
 				NetwModule(const NetwModule &nm);
 	NetwModule 	&operator=(const NetwModule &nm);
 };

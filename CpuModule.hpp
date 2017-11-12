@@ -25,7 +25,7 @@ public:
 	float		getLoadSys() const;
 	float		getLoadIdl() const;
 				CpuModule();
-				~CpuModule();
+	virtual		~CpuModule();
 				CpuModule(const CpuModule &cm);
 	CpuModule 	&operator=(const CpuModule &cm);
 };

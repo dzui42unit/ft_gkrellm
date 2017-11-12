@@ -6,13 +6,13 @@
 #    By: dzui <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/01 15:02:50 by dzui              #+#    #+#              #
-#    Updated: 2017/11/12 16:05:24 by dzui             ###   ########.fr        #
+#    Updated: 2017/11/12 16:52:47 by dzui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_gkrellm
 
-SRC =  main.cpp IMonitorModule.cpp HostName.cpp OsModule.cpp TimeModule.cpp CpuModule.cpp DiskModule.cpp MemoryModule.cpp NetwModule.cpp NcursesOut.cpp
+SRC =  main.cpp IMonitorDisplay.cpp IMonitorModule.cpp HostName.cpp OsModule.cpp TimeModule.cpp CpuModule.cpp DiskModule.cpp MemoryModule.cpp NetwModule.cpp NcursesOut.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

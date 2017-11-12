@@ -12,24 +12,14 @@
 
 #include "NcursesOut.hpp"
 
-NcursesOut::NcursesOut()
+NcursesOut::NcursesOut() : IMonitorDisplay()
 {
-	hn = new HostName();
-	os = new OsModule();
-	tm = new TimeModule();
-	cp = new CpuModule();
-	mm = new MemoryModule();
-	nm = new NetwModule();
-	hn->parseInfo();
-	os->parseInfo();
-	tm->parseInfo();
-	cp->parseInfo();
-	mm->parseInfo();
+
 }
 
 NcursesOut::~NcursesOut()
 {
-
+	
 }
 
 void	NcursesOut::printColumn(int y_start, int x_start, float load) const
