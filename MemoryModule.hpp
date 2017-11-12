@@ -15,15 +15,19 @@
 
 #include "Module.hpp"
 
-class 		MemoryModule : public Module
+class 				MemoryModule : public Module
 {
 private:
 	int		mem[3];
 public:
-	void	parseInfo();
-	int		getTotal() const;
-	int		getUsed() const;
-	int		getUnused() const;
+	void			parseInfo();
+	int				getTotal() const;
+	int				getUsed() const;
+	int				getUnused() const;
+					MemoryModule();
+					~MemoryModule();
+					MemoryModule(const MemoryModule &mm);
+	MemoryModule 	&operator=(const MemoryModule &mm);
 };
 
 #endif

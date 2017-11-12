@@ -21,3 +21,24 @@ void	NetwModule::parseInfo()
 			info += buff;
 	}
 }
+
+NetwModule::NetwModule()
+{
+	info = "";
+}
+
+NetwModule::~NetwModule()
+{
+
+}
+
+NetwModule	&NetwModule::operator=(const NetwModule &nm)
+{
+	this->info = nm.info;
+	return (*this);
+}
+
+NetwModule::NetwModule(const NetwModule &nm)
+{
+	this->info = nm.info;
+}

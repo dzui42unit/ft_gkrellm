@@ -12,6 +12,33 @@
 
 #include "CpuModule.hpp"
 
+CpuModule::CpuModule()
+{
+	for (int i = 0; i < 3; i++)
+		load[i] = 0;
+	info = "";
+}
+
+CpuModule::~CpuModule()
+{
+
+}
+
+CpuModule::CpuModule(const CpuModule &cm)
+{
+	this->info = cm.info;
+	for (int i = 0; i < 3; i++)
+		this->load[i] = cm.load[i];
+}
+
+CpuModule	&CpuModule::operator=(const CpuModule &cm)
+{
+	this->info = cm.info;
+	for (int i = 0; i < 3; i++)
+		this->load[i] = cm.load[i];
+	return (*this);
+}
+
 void	CpuModule::parseInfo()
 {
 	std::string temp;

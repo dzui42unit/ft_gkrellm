@@ -18,7 +18,11 @@
 class 		TimeModule : public Module
 {
 public:
-	void	parseInfo();
+	void		parseInfo();
+				TimeModule();
+				~TimeModule();
+				TimeModule(const TimeModule &tm);
+	TimeModule 	&operator=(const TimeModule &tm);
 };
 
 #endif 

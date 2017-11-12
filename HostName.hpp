@@ -15,10 +15,14 @@
 
 #include "Module.hpp"
 
-class 		HostName : public Module
+class 			HostName : public Module
 {
 public:
-	void	parseInfo();
+	void		parseInfo();
+				HostName();
+				~HostName();
+				HostName(const HostName &hn);
+	HostName 	&operator=(const HostName &hn);
 };
 
 #endif

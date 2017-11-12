@@ -12,6 +12,27 @@
 
 #include "DiskModule.hpp"
 
+DiskModule::DiskModule()
+{
+	info = "";
+}
+
+DiskModule::~DiskModule()
+{
+
+}
+
+DiskModule::DiskModule(const DiskModule &dm)
+{
+	this->info = dm.info;
+}
+
+DiskModule	&DiskModule::operator=(const DiskModule &dm)
+{
+	this->info = dm.info;
+	return (*this);
+}
+
 void	DiskModule::parseInfo()
 {
 	pipe = popen("top -l 1 | grep \"Disks:\"", "r");
@@ -22,3 +43,4 @@ void	DiskModule::parseInfo()
 	}
 	pclose(pipe);
 }
+

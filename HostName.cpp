@@ -12,6 +12,27 @@
 
 #include "HostName.hpp"
 
+HostName::HostName()
+{
+	info = "";
+}
+
+HostName::~HostName()
+{
+
+}
+
+HostName 	&HostName::operator=(const HostName &hn)
+{
+	this->info = hn.info;
+	return (*this);
+}
+
+HostName::HostName(const HostName &hn)
+{
+	this->info = hn.info;
+}
+
 void	HostName::parseInfo()
 {
 	gethostname(buff, BUFF_SIZE);

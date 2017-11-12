@@ -18,7 +18,12 @@
 class 		OsModule : public Module
 {
 public:
-	void	parseInfo();
+	void		parseInfo();
+				OsModule();
+				~OsModule();
+				OsModule(const OsModule &os);
+	OsModule 	&operator=(const OsModule &os);
+
 };
 
 #endif

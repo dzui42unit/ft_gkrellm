@@ -12,6 +12,33 @@
 
 #include "MemoryModule.hpp"
 
+MemoryModule::MemoryModule()
+{
+	for (int i = 0; i < 3; i++)
+		mem[i] = 0;
+	info = "";
+}
+
+MemoryModule::~MemoryModule()
+{
+
+}
+
+MemoryModule::MemoryModule(const MemoryModule &mm)
+{
+	for (int i = 0; i < 3; i++)
+		this->mem[i] = mm.mem[i];
+	this->info = mm.info;
+}
+
+MemoryModule	&MemoryModule::operator=(const MemoryModule &mm)
+{
+	for (int i = 0; i < 3; i++)
+		this->mem[i] = mm.mem[i];
+	this->info = mm.info;
+	return (*this);
+}
+
 int		MemoryModule::getTotal() const
 {
 	return (mem[0]);

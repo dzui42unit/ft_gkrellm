@@ -19,3 +19,24 @@ void		TimeModule::parseInfo()
 	time = std::time(0);
 	info = ctime(&time);
 }
+
+TimeModule::TimeModule()
+{
+	info = "";
+}
+
+TimeModule::~TimeModule()
+{
+
+}
+
+TimeModule::TimeModule(const TimeModule &tm)
+{
+	this->info = tm.info;
+}
+
+TimeModule	&TimeModule::operator=(const TimeModule &tm)
+{
+	this->info = tm.info;
+	return (*this);
+}

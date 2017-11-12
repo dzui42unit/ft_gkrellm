@@ -18,7 +18,11 @@
 class 		NetwModule : public Module
 {
 public:
-	void	parseInfo();
+	void		parseInfo();
+				NetwModule();
+				~NetwModule();
+				NetwModule(const NetwModule &nm);
+	NetwModule 	&operator=(const NetwModule &nm);
 };
 
 #endif

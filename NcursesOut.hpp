@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CpuModule.hpp                                      :+:      :+:    :+:   */
+/*   NcursesOut.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dzui <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 16:45:55 by dzui              #+#    #+#             */
-/*   Updated: 2017/11/11 16:45:56 by dzui             ###   ########.fr       */
+/*   Created: 2017/11/12 12:17:09 by dzui              #+#    #+#             */
+/*   Updated: 2017/11/12 12:17:10 by dzui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CPUMODULE_HPP
-#define CPUMODULE_HPP
+#ifndef NCURSESOUT
+#define NCURSESOUT
+
+#define HNW_H 40
 
 #include "Module.hpp"
+#include "HostName.hpp"
+#include "OsModule.hpp"
+#include "TimeModule.hpp"
+#include "CpuModule.hpp"
+#include "DiskModule.hpp"
+#include "MemoryModule.hpp"
+#include "NetwModule.hpp"
 
-class 			CpuModule : public Module 
+#include <ncurses.h>
+
+class 			NcursesOut
 {
 private:
-	float		load[3];
+	WINDOW		*win;
+	int			max_x;
+	int			max_y;
 public:
-	void		parseInfo();
-	float		getLoadUsr() const;
-	float		getLoadSys() const;
-	float		getLoadIdl() const;
-				CpuModule();
-				~CpuModule();
-				CpuModule(const CpuModule &cm);
-	CpuModule 	&operator=(const CpuModule &cm);
+				NcursesOut();
+				~NcursesOut();
+	void		HostNameWin();
 };
 
-#endif
-
+#endif 

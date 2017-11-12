@@ -19,6 +19,10 @@ class 		DiskModule : public Module
 {
 public:
 	void		parseInfo();
+				DiskModule();
+				~DiskModule();
+				DiskModule(const DiskModule &dm);
+	DiskModule 	&operator=(const DiskModule &dm);
 };
 
 #endif

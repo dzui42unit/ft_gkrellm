@@ -22,3 +22,24 @@ void	OsModule::parseInfo()
 	}
 	pclose(pipe);
 }
+
+OsModule::OsModule()
+{
+	info = "";
+}
+
+OsModule::~OsModule()
+{
+
+}
+
+OsModule::OsModule(const OsModule &os)
+{
+	this->info = os.info;
+}
+
+OsModule	&OsModule::operator=(const OsModule &os)
+{
+	this->info = os.info;
+	return (*this);
+}
